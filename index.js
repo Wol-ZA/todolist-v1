@@ -15,16 +15,16 @@ app.get("/", (req,res) =>{
 
 app.post("/" , (req,res) => {
     const item = req.body.newItem;
-    if (req.body.listTitle === "day") {
+    if (req.body.list === "Work") {
+      workItems.push(item);
+      res.redirect("/work");
+    }else{
       if (item != '') {
         items.push(item);
         res.redirect("/");
       }else{
         res.redirect("/");
       }
-    }else{
-      workItems.push(item);
-      res.redirect("/work");
     }
 
 });
